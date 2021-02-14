@@ -1,3 +1,24 @@
+* Packages
+
+** leaf.el
+
+   #+begin_src emacs-lisp
+     (eval-and-compile
+       (customize-set-variable
+	'package-archives '(("org" . "https://orgmode.org/elpa/")
+			    ("melpa" . "https://melpa.org/packages/")
+			    ("gnu" . "https://elpa.gnu.org/packages/")))
+       (package-initialize)
+       (unless (package-installed-p 'leaf)
+	 (package-refresh-contents)
+	 (package-install 'leaf))
+
+       (leaf leaf-keywords
+	     :ensure t
+	     :config
+	     (leaf-keywords-init)))
+   #+end_src
+
 * Org mode
 
 ** Locations
@@ -25,7 +46,6 @@
      (global-set-key (kbd "C-c a") 'org-agenda)
      (global-set-key (kbd "C-c c") 'org-capture)
    #+end_src
-
 
 ** Mode keys
    =C-a=/=C-e= will jump between the beginning/end of the current
