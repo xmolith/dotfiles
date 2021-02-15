@@ -25,3 +25,6 @@ export XZ_DEFAULTS='--threads=0'
 
 # Source bashrc for bash login sessions too
 [ "$BASH" ] && [ -f "$HOME/.bashrc" ] && source "$HOME/.bashrc"
+
+# Use coreutils by default instead of macOS provided commands
+PATH="$(brew --prefix)/opt/coreutils/libexec/gnubin:$PATH"
